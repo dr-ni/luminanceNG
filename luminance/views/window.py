@@ -1,8 +1,5 @@
 import gi
 
-gi.require_version('Gdk', '3.0')
-gi.require_version('Gtk', '3.0')
-
 from gi.repository import Gdk
 from gi.repository import GdkPixbuf
 from gi.repository import Gio
@@ -13,6 +10,9 @@ from .. import get_resource_path
 from .bridge import Bridge
 from .entity import FramedEntityList
 from .groups import Groups
+
+gi.require_version('Gdk', '3.0')
+gi.require_version('Gtk', '3.0')
 
 
 class Window(Gtk.ApplicationWindow):
@@ -47,12 +47,13 @@ class Window(Gtk.ApplicationWindow):
         self._on_connection_change()
 
         geometry = Gdk.Geometry()
-        geometry.min_height = 450
-        geometry.min_width = 575
+        geometry.min_height = -1
+        geometry.min_width = -1
         self.set_geometry_hints(None, geometry, Gdk.WindowHints.MIN_SIZE)
         self.set_titlebar(self.header_bar)
 
         self.add(self.main_content)
+        self.set_resizable(True)
 
     def _on_connection_change(self):
         self.status_bar.push(

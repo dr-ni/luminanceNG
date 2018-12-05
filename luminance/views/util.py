@@ -15,3 +15,17 @@ def hsv_to_gdk_rgb(hue, sat, bri):
     )
 
     return Gdk.RGBA(red=rgb[0], green=rgb[1], blue=rgb[2])
+
+
+def is_rgb(model):
+    try:
+        return hasattr(model, 'hue')
+    except KeyError:
+        return False
+
+def is_dimmable(model):
+    try:
+        return hasattr(model, 'brightness')
+    except KeyError:
+        return False
+    
