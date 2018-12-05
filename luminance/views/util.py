@@ -1,10 +1,9 @@
 import colorsys
 
 import gi
+from gi.repository import Gdk
 
 gi.require_version('Gdk', '3.0')
-
-from gi.repository import Gdk
 
 
 def hsv_to_gdk_rgb(hue, sat, bri):
@@ -23,9 +22,10 @@ def is_rgb(model):
     except KeyError:
         return False
 
+
 def is_dimmable(model):
     try:
         return hasattr(model, 'brightness')
     except KeyError:
         return False
-    
+
