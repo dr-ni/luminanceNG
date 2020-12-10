@@ -147,7 +147,7 @@ class Setup(Gtk.Assistant):
 
     def search(self, cb):
         try:
-            data = requests.get('https://www.meethue.com/api/nupnp').json()
+            data = requests.get('https://discovery.meethue.com/').json()
 
             if not data:
                 raise ValueError('No bridges registered with Philips')
