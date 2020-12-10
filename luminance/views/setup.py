@@ -171,7 +171,7 @@ class Setup(Gtk.Assistant):
 
             for result in data:
                 ip = result['internalipaddress']
-                res = requests.get('http://{ip}/description.xml'.format(ip=ip))
+                res = requests.get('https://{ip}/description.xml'.format(ip=ip))
 
                 name = [_ for _ in filter(
                     lambda line: 'friendlyName' in line,

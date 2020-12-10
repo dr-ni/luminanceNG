@@ -44,6 +44,14 @@ class Application(Gtk.Application):
             'USERNAME'
         )
 
+        self.add_main_option(
+            'reset',
+            ord('r'),
+            GLib.OptionFlags.NONE,
+            GLib.OptionArg.NONE,
+            'Reset host and username and exit',
+        )
+
         self.bridge = None
         self.host = settings.get_string('host')
         self.username = settings.get_string('username')
@@ -78,7 +86,8 @@ class Application(Gtk.Application):
 
     def do_activate(self):
         Gtk.Application.do_activate(self)
-
+        print('Host: ', self.host)
+        print('Username: ', self.username)
         self._connect(self.host, self.username)
 
         self.unmark_busy()
@@ -91,6 +100,12 @@ class Application(Gtk.Application):
 
         if options.contains('username'):
             self.username = str(options.lookup_value('username'))
+
+        if options.contains('reset'):
+            settings.reset('host')
+            settings.reset('username')
+            print('Settings cleared')
+            return 0
 
         self.activate()
 
@@ -128,6 +143,10 @@ class Application(Gtk.Application):
 
     def _setup_finished(self, setup):
         self.bridge = setup.bridge
+        if self.bridge:
+             settings.set_string('host', self.bridge.ip)
+             settings.set_string('username', self.bridge.username)
+             print('Settings saved')
         setup.hide()
         setup.destroy()
         self._init()
