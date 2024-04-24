@@ -23,10 +23,23 @@ it.
 * autoconf 2.69 or later
 * Python 3.5 or later (earlier versions may work, but they haven't been tested)
 * GTK+ 3.18 or later (earlier versions may work, but they haven't been tested)
-* [phue](https://github.com/studioimaginaire/phue) 0.8 or later
-* [netdisco](https://github.com/home-assistant/netdisco) 0.7 or later
+* [phue](https://github.com/studioimaginaire/phue) 1.1 or later
+* [netdisco](https://github.com/home-assistant/netdisco) 0.7 !! no later versiom (pip3 install netdisco==0.7)
 * [requests](https://github.com/kennethreitz/requests) 2.10 or later
-* Hue bridge (tested with the first generation only)
+* Hue bridge (tested with the second generation only)
+
+```
+sudo apt install libxinerama-dev
+sudo apt install libxrandr-dev
+sudo apt install libxcursor-dev
+sudo apt install libxi-dev
+sudo apt install libx11-dev 
+sudo apt install libxtst-dev
+sudo apt install libxfixes-dev
+sudo apt install python-gi-dev
+pip3 install phue
+pip3 install netdisco==0.7
+```
 
 ### Installing
 
