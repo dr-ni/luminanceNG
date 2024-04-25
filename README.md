@@ -38,7 +38,7 @@ sudo apt install libxtst-dev
 sudo apt install libxfixes-dev
 sudo apt install python-gi-dev
 pip3 install phue
-pip3 install netdisco==0.7
+pip3 install netdisco
 ```
 
 ### Installing
