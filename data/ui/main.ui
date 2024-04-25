@@ -23,6 +23,7 @@
             <property name="position">0</property>
           </packing>
         </child>
+<!-- UN  deactivated because of random init state?
         <child>
           <object class="GtkScrolledWindow" id="groups-page">
             <property name="visible">True</property>
@@ -37,6 +38,7 @@
             <property name="position">1</property>
           </packing>
         </child>
+-->
         <child>
           <object class="GtkScrolledWindow" id="bridge-page">
             <property name="visible">True</property>

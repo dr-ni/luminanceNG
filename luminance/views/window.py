@@ -24,7 +24,7 @@ class Window(Gtk.ApplicationWindow):
         self.set_icon_name('luminance')
 
         builder = Gtk.Builder()
-        builder.add_from_resource(get_resource_path('ui/main.ui'))
+        builder.add_from_resource(get_resource_path('ui/main.ui')) 
         builder.connect_signals(self)
 
         self.header_bar = builder.get_object('headerbar')
@@ -36,8 +36,8 @@ class Window(Gtk.ApplicationWindow):
         self.lights_page = builder.get_object('lights-page')
         self.lights_page.add(FramedEntityList(self.bridge.get_light_objects('id').values()))
 
-        self.groups_page = builder.get_object('groups-page')
-        self.groups_page.add(Groups(self.bridge))
+# UN  deactivated because of random init state?     self.groups_page = builder.get_object('groups-page')
+# UN  deactivated because of random init state?     self.groups_page.add(Groups(self.bridge))
 
         self.bridge_page = builder.get_object('bridge-page')
         self.bridge_page.add(Bridge(self.bridge))
